@@ -1,0 +1,31 @@
+{
+  "name": "webdriverio-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "selenium-standalone": "^6.1.0",
+    "wdio-dot-reporter": "0.0.8",
+    "wdio-mocha-framework": "^0.5.9",
+    "webdriverio": "^4.6.2"
+  },
+  "scripts": {
+    "start": "node_modules/selenium-standalone/bin/selenium-standalone start",
+    "test": "node_modules/webdriverio/bin/wdio wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanjsanj/webdriverio-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanjsanj/webdriverio-test/issues"
+  },
+  "homepage": "https://github.com/sanjsanj/webdriverio-test#readme"
+}
