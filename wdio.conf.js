@@ -1,4 +1,4 @@
-var timeout = true ? 999999999 : 10000;
+var timeout = process.env.DEBUG ? 999999999 : 30000;
 
 exports.config = {
     
