@@ -6,6 +6,6 @@ To run:
 2. `npm i`
 3. `npm setup`
 4. `npm start`
-5. In a new console tab `npm test`
+5. `npm test`
 
-You will get test reports in the console and screenshots in the `screenshots` folder.
+Test reports are printed in the console and screenshots are in the `screenshots` folder.
