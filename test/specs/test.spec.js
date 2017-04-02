@@ -29,7 +29,9 @@ describe("Credit cards", function() {
             browser.click("input#CreditCard_GoTo_Provider_87");
             browser.waitForVisible(".apply-with-no-rewards-action", 10000);
             browser.click(".apply-with-no-rewards-action");
+            browser.switchTab(browser.getTabIds()[1]);
             expect(browser.status().state).to.eql("success");
+            browser.saveScreenshot("./screenshots/a.png");
         });
 
         // it("can click on a ... card and be taken to its page", function () {
