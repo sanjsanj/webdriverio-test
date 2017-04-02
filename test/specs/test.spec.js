@@ -1,8 +1,7 @@
 var assert = require("assert");
 var chai = require("chai");
 var expect = chai.expect;
-// var chaiHttp = require("chai-http");
-// chai.use(chaiHttp);
+var fs = require("fs-extra");
 
 describe("Credit cards", function() {
     var pegCreditCardsUrl = "http://peg.money.comparethemarket.com/credit-cards/";
@@ -30,8 +29,13 @@ describe("Credit cards", function() {
             browser.waitForVisible(".apply-with-no-rewards-action", 10000);
             browser.click(".apply-with-no-rewards-action");
             browser.switchTab(browser.getTabIds()[1]);
-            expect(browser.status().state).to.eql("success");
-            browser.saveScreenshot("./screenshots/a.png");
+
+            var browserState = browser.status().state;
+            expect(browserState).to.eql("success");
+
+            var testDate = Date();
+            fs.mkdir(`./screenshots/${testDate}`);
+            browser.saveScreenshot(`./screenshots/${testDate}/${Date()}.png`);
         });
 
         // it("can click on a ... card and be taken to its page", function () {
