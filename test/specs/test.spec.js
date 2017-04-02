@@ -11,8 +11,7 @@ describe("Credit cards - ", () => {
     it("should load ok and with the right title ", () => {
         browser.url(pegCreditCardsUrl);
 
-        let browserState = browser.status().state;
-        expect(browserState).to.eql("success");
+        testHelper.expectBrowserSuccess();
 
         let actualTitle = browser.getTitle();
         expect(actualTitle).to.eql(expectedTitle);
@@ -39,12 +38,9 @@ describe("Credit cards - ", () => {
                 browser.click("input#CreditCard_GoTo_Provider_87");
 
                 testHelper.waitForPopup();
+                testHelper.switchToLastTab();
 
-                browser.switchTab(browser.getTabIds().slice(-1)[0]);
-
-                let browserState = browser.status().state;
-                expect(browserState).to.eql("success");
-
+                testHelper.expectBrowserSuccess();
                 testHelper.takeScreenshot(testDate, "balance");
             });
 
@@ -54,13 +50,82 @@ describe("Credit cards - ", () => {
                 browser.click("input#CreditCard_GoTo_Provider_93");
 
                 testHelper.waitForPopup();
+                testHelper.switchToLastTab();
 
-                browser.switchTab(browser.getTabIds().slice(-1)[0]);
-
-                let browserState = browser.status().state;
-                expect(browserState).to.eql("success");
-
+                testHelper.expectBrowserSuccess();
                 testHelper.takeScreenshot(testDate, "balance-and-purchase");
+            });
+
+            it("For new purchase cards", () => {
+                browser.url(pegCreditCardsUrl);
+                browser.click("#new-purchase-credit-card-id-44");
+                browser.click("input#CreditCard_GoTo_Provider_44");
+
+                testHelper.waitForPopup();
+                testHelper.switchToLastTab();
+
+                testHelper.expectBrowserSuccess();
+                testHelper.takeScreenshot(testDate, "new-purchase");
+            });
+
+            it("For cashback cards", () => {
+                browser.url(pegCreditCardsUrl);
+                browser.click("#cashback-credit-card-id-15");
+                browser.click("input#CreditCard_GoTo_Provider_15");
+
+                testHelper.waitForPopup();
+                testHelper.switchToLastTab();
+
+                testHelper.expectBrowserSuccess();
+                testHelper.takeScreenshot(testDate, "cashback");
+            });
+
+            it("For rewards cards", () => {
+                browser.url(pegCreditCardsUrl);
+                browser.click("#rewards-credit-card-id-78");
+                browser.click("input#CreditCard_GoTo_Provider_78");
+
+                testHelper.waitForPopup();
+                testHelper.switchToLastTab();
+
+                testHelper.expectBrowserSuccess();
+                testHelper.takeScreenshot(testDate, "rewards");
+            });
+
+            it("For lowest APR cards", () => {
+                browser.url(pegCreditCardsUrl);
+                browser.click("#lowest-long-term-apr-credit-card-id-51");
+                browser.click("input#CreditCard_GoTo_Provider_51");
+
+                testHelper.waitForPopup();
+                testHelper.switchToLastTab();
+
+                testHelper.expectBrowserSuccess();
+                testHelper.takeScreenshot(testDate, "lowest-APR");
+            });
+
+            it("For bank cards", () => {
+                browser.url(pegCreditCardsUrl);
+                browser.click("#cards-from-your-bank-credit-card-id-52");
+                browser.click("input#CreditCard_GoTo_Provider_52");
+
+                testHelper.waitForPopup();
+                testHelper.switchToLastTab();
+
+                testHelper.expectBrowserSuccess();
+                testHelper.takeScreenshot(testDate, "bank");
+            });
+
+            it("For credit building cards", () => {
+                browser.url(pegCreditCardsUrl);
+                browser.click("#credit-builder-credit-card-id-63");
+                browser.click("input#CreditCard_GoTo_Provider_63");
+
+                testHelper.waitForPopup();
+                testHelper.switchToLastTab();
+
+                testHelper.expectBrowserSuccess();
+                testHelper.takeScreenshot(testDate, "credit-building");
             });
         });
     });

@@ -1,4 +1,5 @@
 const fs = require("fs-extra");
+const expect = require("chai").expect;
 
 module.exports = {
     waitForPopup: () => {
@@ -14,5 +15,14 @@ module.exports = {
         }
 
         browser.saveScreenshot(`./screenshots/${testDate}/${Date()}__${type}.png`);
-    }
+    },
+
+    switchToLastTab: () => {
+        browser.switchTab(browser.getTabIds().slice(-1)[0]);
+    },
+
+    expectBrowserSuccess: () => {
+        let browserState = browser.status().state;
+        expect(browserState).to.eql("success");
+    },
 }
