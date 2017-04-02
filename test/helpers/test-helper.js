@@ -25,4 +25,9 @@ module.exports = {
         let browserState = browser.status().state;
         expect(browserState).to.eql("success");
     },
+
+    expectUrlToInclude: (string) => {
+        let browserUrl = browser.url().value;
+        expect(browserUrl).to.include(string);
+    },
 }

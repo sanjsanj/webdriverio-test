@@ -3,13 +3,13 @@ const expect = chai.expect;
 const testHelper = require("../helpers/test-helper");
 
 describe("Credit cards - ", () => {
-    const pegCreditCardsUrl = "https://peg.money.comparethemarket.com/credit-cards/";
+    const testUrl = "https://peg.money.comparethemarket.com/credit-cards/";
     const expectedTitle = "Compare Our Best Credit Card Deals | CompareTheMarket";
     const filterList = ".basic-filter-list";
     const testDate = Date();
 
     it("should load ok and with the right title ", () => {
-        browser.url(pegCreditCardsUrl);
+        browser.url(testUrl);
 
         testHelper.expectBrowserSuccess();
 
@@ -22,18 +22,90 @@ describe("Credit cards - ", () => {
         describe("Can go to the subpage - ", () => {
 
             it("For 0% balance transfer cards", () => {
-                browser.url(pegCreditCardsUrl);
-                browser.click("#balance-transfer-credit-card-id-87");
+                browser.url(testUrl);
 
-                let card = $("input[id=CreditCard_GoTo_Provider_87]");
-                expect(card).to.exist;
+                browser.click(filterList);
+                browser.click("#basic-filter-BalanceTransfer");
+
+                testHelper.expectUrlToInclude(`/balance-transfer/`);
+                testHelper.expectBrowserSuccess();
+            });
+
+            it("For 0% balance transfer and new purchase cards", () => {
+                browser.url(testUrl);
+
+                browser.click(filterList);
+                browser.click("#basic-filter-BalanceTransferAndNewPurchase");
+
+                testHelper.expectUrlToInclude(`/balance-transfer-and-purchases/`);
+                testHelper.expectBrowserSuccess();
+            });
+
+            it("For new purchase cards", () => {
+                browser.url(testUrl);
+
+                browser.click(filterList);
+                browser.click("#basic-filter-NewPurchase");
+
+                testHelper.expectUrlToInclude(`/purchases/`);
+                testHelper.expectBrowserSuccess();
+            });
+
+            it("For cashback cards", () => {
+                browser.url(testUrl);
+
+                browser.click(filterList);
+                browser.click("#basic-filter-Cashback");
+
+                testHelper.expectUrlToInclude(`/cashback/`);
+                testHelper.expectBrowserSuccess();
+            });
+
+            it("For rewards cards", () => {
+                browser.url(testUrl);
+
+                browser.click(filterList);
+                browser.click("#basic-filter-Rewards");
+
+                testHelper.expectUrlToInclude(`/rewards/`);
+                testHelper.expectBrowserSuccess();
+            });
+
+            it("For low APR cards", () => {
+                browser.url(testUrl);
+
+                browser.click(filterList);
+                browser.click("#basic-filter-LowestLongTermApr");
+
+                testHelper.expectUrlToInclude(`/low-apr/`);
+                testHelper.expectBrowserSuccess();
+            });
+
+            it("For bank cards", () => {
+                browser.url(testUrl);
+
+                browser.click(filterList);
+                browser.click("#basic-filter-CardsFromYourBank");
+
+                testHelper.expectUrlToInclude(`/cards-from-your-bank/`);
+                testHelper.expectBrowserSuccess();
+            });
+
+            it("For credit building cards", () => {
+                browser.url(testUrl);
+
+                browser.click(filterList);
+                browser.click("#basic-filter-CreditBuilder");
+
+                testHelper.expectUrlToInclude(`/credit-building/`);
+                testHelper.expectBrowserSuccess();
             });
         });
 
         describe("Can go to the third party landing page - ", () => {
 
             it("For 0% balance transfer cards", () => {
-                browser.url(pegCreditCardsUrl);
+                browser.url(testUrl);
                 browser.click("#balance-transfer-credit-card-id-87");
                 browser.click("input#CreditCard_GoTo_Provider_87");
 
@@ -44,8 +116,8 @@ describe("Credit cards - ", () => {
                 testHelper.takeScreenshot(testDate, "balance");
             });
 
-            it("For 0% balance transfer and purchase cards", () => {
-                browser.url(pegCreditCardsUrl);
+            it("For 0% balance transfer and new purchase cards", () => {
+                browser.url(testUrl);
                 browser.click("#balance-transfer-and-new-purchase-credit-card-id-93");
                 browser.click("input#CreditCard_GoTo_Provider_93");
 
@@ -57,7 +129,7 @@ describe("Credit cards - ", () => {
             });
 
             it("For new purchase cards", () => {
-                browser.url(pegCreditCardsUrl);
+                browser.url(testUrl);
                 browser.click("#new-purchase-credit-card-id-44");
                 browser.click("input#CreditCard_GoTo_Provider_44");
 
@@ -69,7 +141,7 @@ describe("Credit cards - ", () => {
             });
 
             it("For cashback cards", () => {
-                browser.url(pegCreditCardsUrl);
+                browser.url(testUrl);
                 browser.click("#cashback-credit-card-id-15");
                 browser.click("input#CreditCard_GoTo_Provider_15");
 
@@ -81,7 +153,7 @@ describe("Credit cards - ", () => {
             });
 
             it("For rewards cards", () => {
-                browser.url(pegCreditCardsUrl);
+                browser.url(testUrl);
                 browser.click("#rewards-credit-card-id-78");
                 browser.click("input#CreditCard_GoTo_Provider_78");
 
@@ -93,7 +165,7 @@ describe("Credit cards - ", () => {
             });
 
             it("For lowest APR cards", () => {
-                browser.url(pegCreditCardsUrl);
+                browser.url(testUrl);
                 browser.click("#lowest-long-term-apr-credit-card-id-51");
                 browser.click("input#CreditCard_GoTo_Provider_51");
 
@@ -105,7 +177,7 @@ describe("Credit cards - ", () => {
             });
 
             it("For bank cards", () => {
-                browser.url(pegCreditCardsUrl);
+                browser.url(testUrl);
                 browser.click("#cards-from-your-bank-credit-card-id-52");
                 browser.click("input#CreditCard_GoTo_Provider_52");
 
@@ -117,7 +189,7 @@ describe("Credit cards - ", () => {
             });
 
             it("For credit building cards", () => {
-                browser.url(pegCreditCardsUrl);
+                browser.url(testUrl);
                 browser.click("#credit-builder-credit-card-id-63");
                 browser.click("input#CreditCard_GoTo_Provider_63");
 
