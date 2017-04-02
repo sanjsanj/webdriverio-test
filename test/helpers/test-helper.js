@@ -9,16 +9,16 @@ module.exports = {
         } catch (event) {}
     },
 
-    takeScreenshot: (testDate, type) => {
+    takeScreenshot: (testDate, suiteType, testType) => {
         if (!fs.existsSync(`./screenshots/${testDate}`)) {
             fs.mkdir(`./screenshots/${testDate}`);
         }
 
-        browser.saveScreenshot(`./screenshots/${testDate}/${Date()}__${type}.png`);
+        browser.saveScreenshot(`./screenshots/${testDate}/${Date()}__${suiteType}--${testType}.png`);
     },
 
-    switchToLastTab: () => {
-        browser.switchTab(browser.getTabIds().slice(-1)[0]);
+    closeNewTab: () => {
+        browser.close(browser.getTabIds().slice(-1)[0]);
     },
 
     expectBrowserSuccess: () => {
