@@ -16,9 +16,9 @@
     "webdriverio": "^4.6.2"
   },
   "scripts": {
-    "setup": "node_modules/selenium-standalone/bin/selenium-standalone install",
-    "start": "node_modules/selenium-standalone/bin/selenium-standalone start",
-    "test": "node_modules/webdriverio/bin/wdio wdio.conf.js"
+    "setup": "selenium-standalone install",
+    "start": "selenium-standalone start",
+    "test": "wdio wdio.conf.js"
   },
   "repository": {
     "type": "git",

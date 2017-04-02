@@ -1,5 +1,6 @@
 const fs = require("fs-extra");
 const expect = require("chai").expect;
+const path = require("path");
 
 module.exports = {
     waitForPopup: function () {
@@ -10,11 +11,14 @@ module.exports = {
     },
 
     takeScreenshot: (testDate, suiteType, testType) => {
-        if (!fs.existsSync(`./screenshots/${testDate}`)) {
-            fs.mkdir(`./screenshots/${testDate}`);
+        testDate =  testDate.replace(/:/g, '');
+        const date =  testDate.replace(/:/g, '');
+
+        if (!fs.existsSync(path.resolve(`./screenshots/${testDate}`))) {
+            fs.mkdirsSync(path.resolve(`./screenshots/${testDate}`));
         }
 
-        browser.saveScreenshot(`./screenshots/${testDate}/${Date()}__${suiteType}--${testType}.png`);
+        browser.saveScreenshot(path.resolve(`./screenshots/${testDate}/${date}__${suiteType}--${testType}.png`));
     },
 
     handleTabs: function () {
