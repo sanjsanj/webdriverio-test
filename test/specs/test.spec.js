@@ -1,4 +1,4 @@
-var assert = require("assert");
+// var assert = require("assert");
 var chai = require("chai");
 var expect = chai.expect;
 var fs = require("fs-extra");
@@ -20,9 +20,11 @@ describe("Credit cards", function() {
     });
 
     describe("From the overview page", function() {
+
         it("can click on a 0% balance transfer card and be taken to its page", function () {
             browser.url(pegCreditCardsUrl);
             browser.click("#balance-transfer-credit-card-id-87");
+
             var card = $("input[id=CreditCard_GoTo_Provider_87]");
             expect(card).to.exist;
         });
