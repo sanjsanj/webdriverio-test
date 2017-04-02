@@ -18,6 +18,9 @@ module.exports = {
     },
 
     closeNewTab: () => {
+        // console.log(`all tabs: ${browser.getTabIds()}`);
+        // console.log(`first tab: ${browser.getTabIds().slice(0)[0]}`);
+        // console.log(`last in array: ${browser.getTabIds().slice(-1)[0]}`);
         browser.close(browser.getTabIds().slice(-1)[0]);
     },
 

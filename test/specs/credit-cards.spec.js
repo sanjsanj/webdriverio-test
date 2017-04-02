@@ -8,9 +8,11 @@ describe("Credit cards overview page - ", () => {
     const filterList = ".basic-filter-list";
     const testDate = Date();
 
-    it("Should load with the right title ", () => {
+    beforeEach(function (done) {
         browser.url(testUrl);
+    });
 
+    it("Should load with the right title ", () => {
         testHelper.expectBrowserSuccess();
 
         let actualTitle = browser.getTitle();
@@ -20,8 +22,6 @@ describe("Credit cards overview page - ", () => {
     describe("Can go to the subpage - ", () => {
 
         it("For 0% balance transfer cards", () => {
-            browser.url(testUrl);
-
             browser.click(filterList);
             browser.click("#basic-filter-BalanceTransfer");
 
@@ -31,8 +31,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For 0% balance transfer and new purchase cards", () => {
-            browser.url(testUrl);
-
             browser.click(filterList);
             browser.click("#basic-filter-BalanceTransferAndNewPurchase");
 
@@ -42,8 +40,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For new purchase cards", () => {
-            browser.url(testUrl);
-
             browser.click(filterList);
             browser.click("#basic-filter-NewPurchase");
 
@@ -53,8 +49,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For cashback cards", () => {
-            browser.url(testUrl);
-
             browser.click(filterList);
             browser.click("#basic-filter-Cashback");
 
@@ -64,8 +58,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For rewards cards", () => {
-            browser.url(testUrl);
-
             browser.click(filterList);
             browser.click("#basic-filter-Rewards");
 
@@ -75,8 +67,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For low APR cards", () => {
-            browser.url(testUrl);
-
             browser.click(filterList);
             browser.click("#basic-filter-LowestLongTermApr");
 
@@ -86,8 +76,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For bank cards", () => {
-            browser.url(testUrl);
-
             browser.click(filterList);
             browser.click("#basic-filter-CardsFromYourBank");
 
@@ -97,8 +85,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For credit building cards", () => {
-            browser.url(testUrl);
-
             browser.click(filterList);
             browser.click("#basic-filter-CreditBuilder");
 
@@ -111,7 +97,6 @@ describe("Credit cards overview page - ", () => {
     describe("Can go to the third party landing page - ", () => {
 
         it("For 0% balance transfer cards", () => {
-            browser.url(testUrl);
             browser.click("#balance-transfer-credit-card-id-87");
             browser.click("input#CreditCard_GoTo_Provider_87");
 
@@ -123,7 +108,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For 0% balance transfer and new purchase cards", () => {
-            browser.url(testUrl);
             browser.click("#balance-transfer-and-new-purchase-credit-card-id-93");
             browser.click("input#CreditCard_GoTo_Provider_93");
 
@@ -135,7 +119,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For new purchase cards", () => {
-            browser.url(testUrl);
             browser.click("#new-purchase-credit-card-id-44");
             browser.click("input#CreditCard_GoTo_Provider_44");
 
@@ -147,7 +130,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For cashback cards", () => {
-            browser.url(testUrl);
             browser.click("#cashback-credit-card-id-15");
             browser.click("input#CreditCard_GoTo_Provider_15");
 
@@ -159,7 +141,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For rewards cards", () => {
-            browser.url(testUrl);
             browser.click("#rewards-credit-card-id-78");
             browser.click("input#CreditCard_GoTo_Provider_78");
 
@@ -171,7 +152,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For lowest APR cards", () => {
-            browser.url(testUrl);
             browser.click("#lowest-long-term-apr-credit-card-id-51");
             browser.click("input#CreditCard_GoTo_Provider_51");
 
@@ -183,7 +163,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For bank cards", () => {
-            browser.url(testUrl);
             browser.click("#cards-from-your-bank-credit-card-id-52");
             browser.click("input#CreditCard_GoTo_Provider_52");
 
@@ -195,7 +174,6 @@ describe("Credit cards overview page - ", () => {
         });
 
         it("For credit building cards", () => {
-            browser.url(testUrl);
             browser.click("#credit-builder-credit-card-id-63");
             browser.click("input#CreditCard_GoTo_Provider_63");
 
