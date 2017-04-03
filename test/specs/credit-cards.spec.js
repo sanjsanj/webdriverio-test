@@ -3,8 +3,8 @@ const expect = chai.expect;
 const testHelper = require("../helpers/test-helper");
 
 describe("Credit cards overview page - ", function () {
-    const testUrl = "https://peg.money.comparethemarket.com/credit-cards/";
-    const expectedTitle = "Compare Our Best Credit Card Deals | CompareTheMarket";
+    const testUrl = `https://peg.money.comparethemarket.com/credit-cards/`;
+    const expectedTitle = `Compare Our Best Credit Card Deals | CompareTheMarket`;
     const filterList = ".basic-filter-list";
     const testDate = Date();
 
