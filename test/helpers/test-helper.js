@@ -5,7 +5,7 @@ const path = require("path");
 module.exports = {
     waitForPopup: function () {
         try {
-            browser.waitForVisible(".apply-with-no-rewards-action", 10000);
+            browser.waitForVisible(".apply-with-no-rewards-action", 6000);
             browser.click(".apply-with-no-rewards-action");
         } catch (event) {}
     },
@@ -21,10 +21,12 @@ module.exports = {
         browser.saveScreenshot(path.resolve(`./screenshots/${testDate}/${date}__${suiteType}--${testType}.png`));
     },
 
-    handleTabs: function () {
+    closeOtherTabs: function () {
         // console.log(`all tabs: ${browser.getTabIds()}`);
         // console.log(`first tab: ${browser.getTabIds().slice(0)[0]}`);
         // console.log(`last in array: ${browser.getTabIds().slice(-1)[0]}`);
+        // console.log(`function on: ${browser.getTabIds().slice(-1)[0]}`);
+        // console.log(`--------`);
         browser.close(browser.getTabIds().slice(-1)[0]);
     },
 

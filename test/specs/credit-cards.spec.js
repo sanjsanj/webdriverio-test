@@ -101,7 +101,7 @@ describe("Credit cards overview page - ", function () {
             browser.click("input#CreditCard_GoTo_Provider_87");
 
             testHelper.waitForPopup();
-            testHelper.handleTabs();
+            testHelper.closeOtherTabs();
 
             testHelper.expectBrowserSuccess();
             testHelper.takeScreenshot(testDate, "credit-cards-third-party", "balance");
@@ -112,7 +112,7 @@ describe("Credit cards overview page - ", function () {
             browser.click("input#CreditCard_GoTo_Provider_93");
 
             testHelper.waitForPopup();
-            testHelper.handleTabs();
+            testHelper.closeOtherTabs();
 
             testHelper.expectBrowserSuccess();
             testHelper.takeScreenshot(testDate, "credit-cards-third-party", "balance-and-purchase");
@@ -123,7 +123,7 @@ describe("Credit cards overview page - ", function () {
             browser.click("input#CreditCard_GoTo_Provider_44");
 
             testHelper.waitForPopup();
-            testHelper.handleTabs();
+            testHelper.closeOtherTabs();
 
             testHelper.expectBrowserSuccess();
             testHelper.takeScreenshot(testDate, "credit-cards-third-party", "new-purchase");
@@ -134,7 +134,7 @@ describe("Credit cards overview page - ", function () {
             browser.click("input#CreditCard_GoTo_Provider_15");
 
             testHelper.waitForPopup();
-            testHelper.handleTabs();
+            testHelper.closeOtherTabs();
 
             testHelper.expectBrowserSuccess();
             testHelper.takeScreenshot(testDate, "credit-cards-third-party", "cashback");
@@ -145,7 +145,7 @@ describe("Credit cards overview page - ", function () {
             browser.click("input#CreditCard_GoTo_Provider_78");
 
             testHelper.waitForPopup();
-            testHelper.handleTabs();
+            testHelper.closeOtherTabs();
 
             testHelper.expectBrowserSuccess();
             testHelper.takeScreenshot(testDate, "credit-cards-third-party", "rewards");
@@ -156,7 +156,7 @@ describe("Credit cards overview page - ", function () {
             browser.click("input#CreditCard_GoTo_Provider_51");
 
             testHelper.waitForPopup();
-            testHelper.handleTabs();
+            testHelper.closeOtherTabs();
 
             testHelper.expectBrowserSuccess();
             testHelper.takeScreenshot(testDate, "credit-cards-third-party", "low-apr");
@@ -167,7 +167,7 @@ describe("Credit cards overview page - ", function () {
             browser.click("input#CreditCard_GoTo_Provider_52");
 
             testHelper.waitForPopup();
-            testHelper.handleTabs();
+            testHelper.closeOtherTabs();
 
             testHelper.expectBrowserSuccess();
             testHelper.takeScreenshot(testDate, "credit-cards-third-party", "bank");
@@ -178,7 +178,7 @@ describe("Credit cards overview page - ", function () {
             browser.click("input#CreditCard_GoTo_Provider_63");
 
             testHelper.waitForPopup();
-            testHelper.handleTabs();
+            testHelper.closeOtherTabs();
 
             testHelper.expectBrowserSuccess();
             testHelper.takeScreenshot(testDate, "credit-cards-third-party", "credit-building");
