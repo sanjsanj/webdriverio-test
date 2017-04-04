@@ -11,21 +11,19 @@ describe("Loans - ", function () {
         browser.url(testUrl);
     });
 
-    // it("should load with the right title ", function () {
-    //     testHelper.expectBrowserSuccess();
-    //
-    //     let actualTitle = browser.getTitle();
-    //     expect(actualTitle).to.eql(expectedTitle);
-    // });
-
-    it("Can navigate to third party ", function () {
-        browser.click(`#show-details-for-id-34`);
-        browser.click(`#Loan_GoTo_Provider_34`);
-
-        testHelper.waitForPopup();
-        testHelper.handleTabs();
-
+    it("should load with the right title ", function () {
         testHelper.expectBrowserSuccess();
-        testHelper.takeScreenshot(testDate, "loans-third-party", "personal");
+
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.eql(expectedTitle);
     });
+
+    // it("Can navigate to third party ", function () {
+    //
+    //     testHelper.waitForPopup();
+    //     testHelper.closeOtherTabs();
+    //
+    //     testHelper.expectBrowserSuccess();
+    //     testHelper.takeScreenshot(testDate, "loans-third-party", "personal");
+    // });
 });

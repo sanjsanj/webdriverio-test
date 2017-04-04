@@ -1,12 +1,17 @@
-const fs = require("fs-extra");
-const expect = require("chai").expect;
-const path = require("path");
+const fs = require(`fs-extra`);
+const expect = require(`chai`).expect;
+const path = require(`path`);
 
 module.exports = {
+    clickThroughToThirdParty: function (selector) {
+        browser.click(`${selector} a`);
+        browser.click(`.apply-now .apply-action`);
+    },
+
     waitForPopup: function () {
         try {
-            browser.waitForVisible(".apply-with-no-rewards-action", 6000);
-            browser.click(".apply-with-no-rewards-action");
+            browser.waitForVisible(`.apply-with-no-rewards-action`, 6000);
+            browser.click(`.apply-with-no-rewards-action`);
         } catch (event) {}
     },
 
@@ -32,7 +37,7 @@ module.exports = {
 
     expectBrowserSuccess: function () {
         let browserState = browser.status().state;
-        expect(browserState).to.eql("success");
+        expect(browserState).to.eql(`success`);
     },
 
     expectUrlToInclude: function (string) {
