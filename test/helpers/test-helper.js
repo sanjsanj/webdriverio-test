@@ -3,12 +3,12 @@ const expect = require(`chai`).expect;
 const path = require(`path`);
 
 module.exports = {
-    clickThroughToThirdParty: function (selector) {
+    clickThroughToThirdParty: (selector) => {
         browser.click(`${selector} a`);
         browser.click(`.apply-now .apply-action`);
     },
 
-    waitForPopup: function () {
+    waitForPopup: () => {
         try {
             browser.waitForVisible(`.apply-with-no-rewards-action`, 6000);
             browser.click(`.apply-with-no-rewards-action`);
@@ -26,7 +26,7 @@ module.exports = {
         browser.saveScreenshot(path.resolve(`./screenshots/${testDate}/${date}__${suiteType}--${testType}.png`));
     },
 
-    closeOtherTabs: function () {
+    closeOtherTabs: () => {
         // console.log(`all tabs: ${browser.getTabIds()}`);
         // console.log(`first tab: ${browser.getTabIds().slice(0)[0]}`);
         // console.log(`last in array: ${browser.getTabIds().slice(-1)[0]}`);
@@ -35,12 +35,12 @@ module.exports = {
         browser.close(browser.getTabIds().slice(-1)[0]);
     },
 
-    expectBrowserSuccess: function () {
+    expectBrowserSuccess: () => {
         let browserState = browser.status().state;
         expect(browserState).to.eql(`success`);
     },
 
-    expectUrlToInclude: function (string) {
+    expectUrlToInclude: (string) => {
         let browserUrl = browser.url().value;
         expect(browserUrl).to.include(string);
     },
