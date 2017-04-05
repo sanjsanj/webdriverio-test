@@ -3,7 +3,10 @@ const expect = chai.expect;
 const testHelper = require(`../helpers/test-helper`);
 
 describe(`Loans - `, function () {
-    const testUrl = `https://peg.money.comparethemarket.com/loans/`;
+    const testUrl = process.env.NODE_ENV == `production`
+        ? `https://money.comparethemarket.com/loans/`
+        : `https://${process.env.NODE_ENV}.money.comparethemarket.com/loans/`;
+        
     const expectedTitle = `Compare Cheap Personal & Homeowner Loans | CompareTheMarket`;
     const testDate = Date();
 
@@ -19,7 +22,6 @@ describe(`Loans - `, function () {
     });
 
     // it(`Can navigate to third party `, () => {
-    //
     //     testHelper.waitForPopup();
     //     testHelper.closeOtherTabs();
     //

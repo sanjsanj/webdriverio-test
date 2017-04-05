@@ -1,7 +1,7 @@
 {
   "name": "webdriverio-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "A webdriverIO test repo",
   "main": "test.js",
   "directories": {
     "test": "test"
@@ -9,6 +9,12 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
+    "cross-env": "^4.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
     "fs-extra": "^2.1.2",
     "selenium-standalone": "^6.1.0",
     "wdio-dot-reporter": "0.0.8",
@@ -18,13 +24,15 @@
   "scripts": {
     "setup": "selenium-standalone install",
     "start": "selenium-standalone start",
-    "test": "wdio wdio.conf.js"
+    "test-peg": "cross-env NODE_ENV=peg wdio wdio.conf.js",
+    "test-bre": "cross-env NODE_ENV=bre wdio wdio.conf.js",
+    "test-prod": "cross-env NODE_ENV=production wdio wdio.conf.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sanjsanj/webdriverio-test.git"
   },
-  "author": "",
+  "author": "Sanjay Purswani",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sanjsanj/webdriverio-test/issues"
