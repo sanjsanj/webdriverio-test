@@ -8,10 +8,10 @@ module.exports = {
         browser.click(`.apply-now .apply-action`);
     },
 
-    waitForPopup: () => {
+    waitForAndClickElement: (element, time = 6000) => {
         try {
-            browser.waitForVisible(`.apply-with-no-rewards-action`, 6000);
-            browser.click(`.apply-with-no-rewards-action`);
+            browser.waitForVisible(element, time);
+            browser.click(element);
         } catch (event) {}
     },
 
