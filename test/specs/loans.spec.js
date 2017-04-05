@@ -48,14 +48,24 @@ describe(`Loans - `, function () {
         browser.click(`.more-details`);
 
         testHelper.waitForAndClickElement(`.apply-action`);
-
-        // console.log(browser.element(`#callback-splashtext-top h3`));
-        // testHelper.waitForPopup();
-        // testHelper.closeOtherTabs();
         testHelper.waitForAndClickElement(`.apply-with-no-rewards-action`);
         testHelper.closeOtherTabs();
 
         testHelper.expectBrowserSuccess();
         testHelper.takeScreenshot(testDate, `loans-third-party`, `personal`);
+    });
+
+    it(`Can get callback popup for homeowner loans`, () => {
+        browser.click(`.secured-loans-tab`);
+        browser.click(`.more-details`);
+
+        testHelper.waitForAndClickElement(`.apply-action`);
+
+        const actualText = browser.element(`#callback-splashtext-top`).getText();
+        const expectedText = `To apply for this loan, we’ll need to call you back`;
+
+        expect(actualText).to.include(expectedText);
+        testHelper.expectBrowserSuccess();
+        testHelper.takeScreenshot(testDate, `loans-popup`, `homeowner`);
     });
 });
