@@ -31,7 +31,7 @@ describe(`Credit cards overview page - `, () => {
             
             testHelper.expectUrlToInclude(`/balance-transfer/`);
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-subpage`, `balance`);
+            testHelper.takeScreenshot(testDate, `credit-cards-subpage--balance`);
         });
         
         it(`For 0% balance transfer and new purchase cards`, () => {
@@ -40,7 +40,7 @@ describe(`Credit cards overview page - `, () => {
             
             testHelper.expectUrlToInclude(`/balance-transfer-and-purchases/`);
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-subpage`, `balance-and-purchase`);
+            testHelper.takeScreenshot(testDate, `credit-cards-subpage--balance-and-purchase`);
         });
         
         it(`For new purchase cards`, () => {
@@ -49,7 +49,7 @@ describe(`Credit cards overview page - `, () => {
             
             testHelper.expectUrlToInclude(`/purchases/`);
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-subpage`, `new-purchase`);
+            testHelper.takeScreenshot(testDate, `credit-cards-subpage--new-purchase`);
         });
         
         it(`For cashback cards`, () => {
@@ -58,7 +58,7 @@ describe(`Credit cards overview page - `, () => {
             
             testHelper.expectUrlToInclude(`/cashback/`);
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-subpage`, `cashback`);
+            testHelper.takeScreenshot(testDate, `credit-cards-subpage--cashback`);
         });
         
         it(`For rewards cards`, () => {
@@ -67,7 +67,7 @@ describe(`Credit cards overview page - `, () => {
             
             testHelper.expectUrlToInclude(`/rewards/`);
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-subpage`, `rewards`);
+            testHelper.takeScreenshot(testDate, `credit-cards-subpage--rewards`);
         });
         
         it(`For low APR cards`, () => {
@@ -76,7 +76,7 @@ describe(`Credit cards overview page - `, () => {
             
             testHelper.expectUrlToInclude(`/low-apr/`);
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-subpage`, `low-apr`);
+            testHelper.takeScreenshot(testDate, `credit-cards-subpage--low-apr`);
         });
         
         it(`For bank cards`, () => {
@@ -85,7 +85,7 @@ describe(`Credit cards overview page - `, () => {
             
             testHelper.expectUrlToInclude(`/cards-from-your-bank/`);
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-subpage`, `bank`);
+            testHelper.takeScreenshot(testDate, `credit-cards-subpage--bank`);
         });
         
         it(`For credit building cards`, () => {
@@ -94,7 +94,7 @@ describe(`Credit cards overview page - `, () => {
             
             testHelper.expectUrlToInclude(`/credit-building/`);
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-subpage`, `credit-building`);
+            testHelper.takeScreenshot(testDate, `credit-cards-subpage--credit-building`);
         });
     });
     
@@ -107,7 +107,7 @@ describe(`Credit cards overview page - `, () => {
             testHelper.closeOtherTabs();
             
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-third-party`, `balance`);
+            testHelper.takeScreenshot(testDate, `credit-cards-third-party--balance`);
         });
         
         it(`For 0% balance transfer and new purchase cards`, () => {
@@ -117,7 +117,7 @@ describe(`Credit cards overview page - `, () => {
             testHelper.closeOtherTabs();
             
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-third-party`, `balance-and-purchase`);
+            testHelper.takeScreenshot(testDate, `credit-cards-third-party--balance-and-purchase`);
         });
         
         it(`For new purchase cards`, () => {
@@ -127,7 +127,7 @@ describe(`Credit cards overview page - `, () => {
             testHelper.closeOtherTabs();
             
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-third-party`, `new-purchase`);
+            testHelper.takeScreenshot(testDate, `credit-cards-third-party--new-purchase`);
         });
         
         it(`For cashback cards`, () => {
@@ -137,7 +137,7 @@ describe(`Credit cards overview page - `, () => {
             testHelper.closeOtherTabs();
             
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-third-party`, `cashback`);
+            testHelper.takeScreenshot(testDate, `credit-cards-third-party--cashback`);
         });
         
         it(`For rewards cards`, () => {
@@ -147,7 +147,7 @@ describe(`Credit cards overview page - `, () => {
             testHelper.closeOtherTabs();
             
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-third-party`, `rewards`);
+            testHelper.takeScreenshot(testDate, `credit-cards-third-party--rewards`);
         });
         
         it(`For lowest APR cards`, () => {
@@ -157,7 +157,7 @@ describe(`Credit cards overview page - `, () => {
             testHelper.closeOtherTabs();
             
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-third-party`, `low-apr`);
+            testHelper.takeScreenshot(testDate, `credit-cards-third-party--low-apr`);
         });
         
         it(`For bank cards`, () => {
@@ -167,7 +167,7 @@ describe(`Credit cards overview page - `, () => {
             testHelper.closeOtherTabs();
             
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-third-party`, `bank`);
+            testHelper.takeScreenshot(testDate, `credit-cards-third-party--bank`);
         });
         
         it(`For credit building cards`, () => {
@@ -177,7 +177,7 @@ describe(`Credit cards overview page - `, () => {
             testHelper.closeOtherTabs();
             
             testHelper.expectBrowserSuccess();
-            testHelper.takeScreenshot(testDate, `credit-cards-third-party`, `credit-building`);
+            testHelper.takeScreenshot(testDate, `credit-cards-third-party--credit-building`);
         });
     });
 });

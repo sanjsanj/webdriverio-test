@@ -26,21 +26,21 @@ describe(`Loans - `, function () {
         browser.click(`.all-loans-tab`);
 
         testHelper.expectBrowserSuccess();
-        testHelper.takeScreenshot(testDate, `loans-tab`, `all`);
+        testHelper.takeScreenshot(testDate, `loans-tab--all`);
     });
 
     it(`Can load the "Personal loans" tab`, () => {
         browser.click(`.personal-loans-tab`);
 
         testHelper.expectBrowserSuccess();
-        testHelper.takeScreenshot(testDate, `loans-tab`, `personal`);
+        testHelper.takeScreenshot(testDate, `loans-tab--personal`);
     });
 
     it(`Can load the "Homeowner loans" tab`, () => {
         browser.click(`.secured-loans-tab`);
 
         testHelper.expectBrowserSuccess();
-        testHelper.takeScreenshot(testDate, `loans-tab`, `homeowner`);
+        testHelper.takeScreenshot(testDate, `loans-tab--homeowner`);
     });
 
     it(`Can go through to a personal loan third party`, () => {
@@ -52,7 +52,7 @@ describe(`Loans - `, function () {
         testHelper.closeOtherTabs();
 
         testHelper.expectBrowserSuccess();
-        testHelper.takeScreenshot(testDate, `loans-third-party`, `personal`);
+        testHelper.takeScreenshot(testDate, `loans-third-party--personal`);
     });
 
     it(`Can get callback popup for homeowner loans`, () => {
@@ -66,6 +66,6 @@ describe(`Loans - `, function () {
 
         expect(actualText).to.include(expectedText);
         testHelper.expectBrowserSuccess();
-        testHelper.takeScreenshot(testDate, `loans-popup`, `homeowner`);
+        testHelper.takeScreenshot(testDate, `loans-popup--homeowner`);
     });
 });
