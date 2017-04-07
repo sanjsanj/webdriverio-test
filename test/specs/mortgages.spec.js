@@ -2,16 +2,21 @@ const chai = require(`chai`);
 const expect = chai.expect;
 const testHelper = require(`../helpers/test-helper`);
 
-describe(`Old mortgages landing page - `, function () {
-    const testUrl = process.env.NODE_ENV == `production`
+    const oldMortgageLandingPage = process.env.NODE_ENV == `production`
         ? `https://money.comparethemarket.com/mortgages/`
         : `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/`;
+
+    const oldMortgageDropdownPage = process.env.NODE_ENV == `production`
+        ? `https://money.comparethemarket.com/mortgages/remortgage/`
+        : `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/remortgage/`;
 
     const expectedTitle = `Mortgages - Compare Mortgage Rates Online | CompareTheMarket`;
     const testDate = Date();
 
+describe(`Old mortgages landing page - `, function () {
+
     beforeEach( (done) => {
-        browser.url(testUrl);
+        browser.url(oldMortgageLandingPage);
     });
 
     it(`Should load with the right title`, () => {
@@ -56,5 +61,16 @@ describe(`Old mortgages landing page - `, function () {
 
         testHelper.expectBrowserSuccess();
         testHelper.takeScreenshot(testDate, `old-mortgages--buy-to-let-landing-page`);
+    });
+});
+
+describe (`From old mortgage dropdown - `, () => {
+
+    beforeEach( (done) => {
+        browser.url(oldMortgageDropdownPage);
+    });
+
+    it(`Can navigate to moving home page`, () => {
+        
     });
 });
