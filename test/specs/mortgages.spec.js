@@ -2,7 +2,7 @@ const chai = require(`chai`);
 const expect = chai.expect;
 const testHelper = require(`../helpers/test-helper`);
 
-describe(`Old mortgages - `, function () {
+describe(`Old mortgages landing page - `, function () {
     const testUrl = process.env.NODE_ENV == `production`
         ? `https://money.comparethemarket.com/mortgages/`
         : `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/`;
@@ -22,50 +22,39 @@ describe(`Old mortgages - `, function () {
         expect(actualTitle).to.eql(expectedTitle);
     });
 
-    // it(`Can load the "All loans" tab`, () => {
-    //     browser.click(`.all-loans-tab`);
+    it(`Can click through to remortgage page`, () => {
+        browser.click(`#mortgage-remortgage`);
 
-    //     testHelper.expectBrowserSuccess();
-    //     testHelper.takeScreenshot(testDate, `loans-tab`, `all`);
-    // });
+        testHelper.expectUrlToInclude(`/remortgage/`);
 
-    // it(`Can load the "Personal loans" tab`, () => {
-    //     browser.click(`.personal-loans-tab`);
+        testHelper.expectBrowserSuccess();
+        testHelper.takeScreenshot(testDate, `old-mortgages--remortgage-landing-page`);
+    });
 
-    //     testHelper.expectBrowserSuccess();
-    //     testHelper.takeScreenshot(testDate, `loans-tab`, `personal`);
-    // });
+    it(`Can click through to moving home page`, () => {
+        browser.click(`#mortgage-purchase`);
 
-    // it(`Can load the "Homeowner loans" tab`, () => {
-    //     browser.click(`.secured-loans-tab`);
+        testHelper.expectUrlToInclude(`/moving-home/`);
 
-    //     testHelper.expectBrowserSuccess();
-    //     testHelper.takeScreenshot(testDate, `loans-tab`, `homeowner`);
-    // });
+        testHelper.expectBrowserSuccess();
+        testHelper.takeScreenshot(testDate, `old-mortgages--moving-home-landing-page`);
+    });
 
-    // it(`Can go through to a personal loan third party`, () => {
-    //     browser.click(`.personal-loans-tab`);
-    //     browser.click(`.more-details`);
+    it(`Can click through to first time buyer page`, () => {
+        browser.click(`#mortgage-first-time-buyer`);
 
-    //     testHelper.waitForAndClickElement(`.apply-action`);
-    //     testHelper.waitForAndClickElement(`.apply-with-no-rewards-action`);
-    //     testHelper.closeOtherTabs();
+        testHelper.expectUrlToInclude(`/first-time-buyer/`);
 
-    //     testHelper.expectBrowserSuccess();
-    //     testHelper.takeScreenshot(testDate, `loans-third-party`, `personal`);
-    // });
+        testHelper.expectBrowserSuccess();
+        testHelper.takeScreenshot(testDate, `old-mortgages--first-time-buyer-landing-page`);
+    });
 
-    // it(`Can get callback popup for homeowner loans`, () => {
-    //     browser.click(`.secured-loans-tab`);
-    //     browser.click(`.more-details`);
+    it(`Can click through to buy to let page`, () => {
+        browser.click(`#mortgage-buy-to-let`);
 
-    //     testHelper.waitForAndClickElement(`.apply-action`);
+        testHelper.expectUrlToInclude(`/buy-to-let/`);
 
-    //     const actualText = browser.element(`#callback-splashtext-top`).getText();
-    //     const expectedText = `To apply for this loan, we’ll need to call you back`;
-
-    //     expect(actualText).to.include(expectedText);
-    //     testHelper.expectBrowserSuccess();
-    //     testHelper.takeScreenshot(testDate, `loans-popup`, `homeowner`);
-    // });
+        testHelper.expectBrowserSuccess();
+        testHelper.takeScreenshot(testDate, `old-mortgages--buy-to-let-landing-page`);
+    });
 });
