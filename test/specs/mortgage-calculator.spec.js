@@ -30,8 +30,9 @@ describe('Mortgage calculator landing page - ', () => {
     browser.setValue('#income-input-0', '50000');
     browser.click('label*=No');
     browser.click('#btn-calculate');
+
+    browser.waitForVisible('#information-section', 2000);
     expect('#information-section').to.be.visible;
-    browser.debug();
     testHelper.takeScreenshot(testDate, 'mortgage-calculator--fill-form');
   });
 });

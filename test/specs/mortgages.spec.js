@@ -4,12 +4,12 @@ const testHelper = require('../helpers/test-helper');
 const expect = chai.expect;
 
 const oldMortgageLandingPage = process.env.NODE_ENV === 'production'
-    ? 'https://money.comparethemarket.com/mortgages/'
-    : `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/`;
+  ? 'https://money.comparethemarket.com/mortgages/'
+  : `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/`;
 
 const oldMortgageDropdownPage = process.env.NODE_ENV === 'production'
-    ? 'https://money.comparethemarket.com/mortgages/remortgage/'
-    : `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/remortgage/`;
+  ? 'https://money.comparethemarket.com/mortgages/remortgage/'
+  : `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/remortgage/`;
 
 const expectedTitle = 'Mortgages - Compare Mortgage Rates Online | CompareTheMarket';
 const testDate = Date();
