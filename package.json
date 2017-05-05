@@ -19,14 +19,15 @@
     "selenium-standalone": "^6.1.0",
     "wdio-dot-reporter": "0.0.8",
     "wdio-mocha-framework": "^0.5.9",
-    "webdriverio": "^4.6.2"
+    "webdriverio": "^4.8.0"
   },
   "scripts": {
     "setup": "selenium-standalone install",
     "start": "selenium-standalone start",
     "test-peg": "cross-env NODE_ENV=peg wdio wdio.conf.js",
     "test-bre": "cross-env NODE_ENV=bre wdio wdio.conf.js",
-    "test-prod": "cross-env NODE_ENV=production wdio wdio.conf.js"
+    "test-prod": "cross-env NODE_ENV=production wdio wdio.conf.js",
+    "test-qa": "cross-env NODE_ENV=qa wdio wdio.conf.js"
   },
   "repository": {
     "type": "git",
