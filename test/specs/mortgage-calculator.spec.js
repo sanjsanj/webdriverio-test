@@ -3,9 +3,18 @@ const testHelper = require('../helpers/test-helper');
 
 const expect = chai.expect;
 
-const mortgageCalculatorPage = process.env.NODE_ENV === 'production'
-  ? 'https://www.comparethemarket.com/mortgages/information/calculator/'
-  : `https://cms.${process.env.NODE_ENV}.comparethemarket.com/mortgages/information/calculator/`;
+let mortgageCalculatorPage;
+  switch(process.env.NODE_ENV) {
+    case 'production':
+      mortgageCalculatorPage = 'https://www.comparethemarket.com/mortgages/information/calculator/'; 
+      break;
+    case 'qa':
+      mortgageCalculatorPage = `https://cms.${process.env.NODE_ENV}.internal.comparethemarket.com/mortgages/information/calculator/`;
+      break;
+    default:
+      mortgageCalculatorPage = `https://cms.${process.env.NODE_ENV}.comparethemarket.com/mortgages/information/calculator/`;
+  }
+
 
 const expectedTitle = 'Mortgage Calculator: How Much Can I Borrow? | comparethemarket.com';
 const testDate = Date();

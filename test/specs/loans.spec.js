@@ -3,9 +3,18 @@ const expect = chai.expect;
 const testHelper = require('../helpers/test-helper');
 
 describe('Loans - ', () => {
-  const testUrl = process.env.NODE_ENV == 'production'
-    ? 'https://money.comparethemarket.com/loans/'
-    : `https://${process.env.NODE_ENV}.money.comparethemarket.com/loans/`;
+  let testUrl;
+  switch(process.env.NODE_ENV) {
+    case 'production':
+      testUrl = 'https://money.comparethemarket.com/loans/'; 
+      break;
+    case 'qa':
+      testUrl = `https://money.${process.env.NODE_ENV}.internal.comparethemarket.com/loans/`;
+      break;
+    default:
+      testUrl = `https://${process.env.NODE_ENV}.money.comparethemarket.com/loans/`;
+  }
+
 
   const expectedTitle = 'Compare Cheap Personal & Homeowner Loans | CompareTheMarket';
   const testDate = Date();

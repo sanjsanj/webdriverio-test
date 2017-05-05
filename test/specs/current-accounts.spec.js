@@ -3,9 +3,17 @@ const expect = chai.expect;
 const testHelper = require('../helpers/test-helper');
 
 describe('Current accounts - Can go to the third party landing page - ', () => {
-  const testUrl = process.env.NODE_ENV == 'production'
-    ? 'https://money.comparethemarket.com/current-accounts/'
-    : `https://${process.env.NODE_ENV}.money.comparethemarket.com/current-accounts/`;
+  let testUrl;
+  switch(process.env.NODE_ENV) {
+    case 'production':
+      testUrl = 'https://money.comparethemarket.com/current-accounts/'; 
+      break;
+    case 'qa':
+      testUrl = `https://money.${process.env.NODE_ENV}.internal.comparethemarket.com/current-accounts/`;
+      break;
+    default:
+      testUrl = `https://${process.env.NODE_ENV}.money.comparethemarket.com/current-accounts/`;
+  }
 
   const expectedTitle = 'Current Accounts - Compare Current Account Rates | Compare The Market';
   const testDate = Date();
@@ -23,6 +31,7 @@ describe('Current accounts - Can go to the third party landing page - ', () => {
   });
 
   it('For standard accounts', () => {
+    browser.pause(5000); 
     $('.button-green-small.apply-action').click();
     testHelper.closeOtherTabs();
 
