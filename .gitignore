@@ -38,3 +38,5 @@ jspm_packages
 
 errorShots
 .idea
+
+.DS_Store

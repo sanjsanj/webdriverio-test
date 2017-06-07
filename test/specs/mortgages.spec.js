@@ -4,30 +4,30 @@ const testHelper = require('../helpers/test-helper');
 const expect = chai.expect;
 
 let oldMortgageLandingPage;
-  switch(process.env.NODE_ENV) {
-    case 'production':
-      oldMortgageLandingPage = 'https://money.comparethemarket.com/mortgages/'; 
-      break;
-    case 'qa':
-      oldMortgageLandingPage = `https://money.${process.env.NODE_ENV}.internal.comparethemarket.com/mortgages/`;
-      break;
-    default:
-      oldMortgageLandingPage = `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/`;
-  }
+switch (process.env.NODE_ENV) {
+  case 'production':
+    oldMortgageLandingPage = 'https://money.comparethemarket.com/mortgages/';
+    break;
+  case 'qa':
+    oldMortgageLandingPage = `https://money.${process.env.NODE_ENV}.internal.comparethemarket.com/mortgages/`;
+    break;
+  default:
+    oldMortgageLandingPage = `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/`;
+}
 
 let oldMortgageDropdownPage;
-  switch(process.env.NODE_ENV) {
-    case 'production':
-      oldMortgageDropdownPage = 'https://money.comparethemarket.com/mortgages/remortgage/'; 
-      break;
-    case 'qa':
-      oldMortgageDropdownPage = `https://money.${process.env.NODE_ENV}.internal.comparethemarket.com/mortgages/remortgage/`;
-      break;
-    default:
-      oldMortgageDropdownPage = `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/remortgage/`;
-  }
+switch (process.env.NODE_ENV) {
+  case 'production':
+    oldMortgageDropdownPage = 'https://money.comparethemarket.com/mortgages/remortgage/';
+    break;
+  case 'qa':
+    oldMortgageDropdownPage = `https://money.${process.env.NODE_ENV}.internal.comparethemarket.com/mortgages/remortgage/`;
+    break;
+  default:
+    oldMortgageDropdownPage = `https://${process.env.NODE_ENV}.money.comparethemarket.com/mortgages/remortgage/`;
+}
 
-const expectedTitle = 'Mortgages - Compare Mortgage Rates Online | CompareTheMarket';
+const expectedTitle = 'Compare the Market - Compare the mortgages';
 const testDate = Date();
 const filterList = '.basic-filter-list';
 
@@ -45,7 +45,7 @@ describe('Old mortgages landing page - ', () => {
   });
 
   it('Can click through to remortgage page', () => {
-    browser.click('#mortgage-remortgage');
+    browser.click('#lsc-remortgage');
 
     testHelper.expectUrlToInclude('/remortgage/');
 
@@ -54,7 +54,7 @@ describe('Old mortgages landing page - ', () => {
   });
 
   it('Can click through to moving home page', () => {
-    browser.click('#mortgage-purchase');
+    browser.click('#lsc-house-move');
 
     testHelper.expectUrlToInclude('/moving-home/');
 
@@ -63,7 +63,7 @@ describe('Old mortgages landing page - ', () => {
   });
 
   it('Can click through to first time buyer page', () => {
-    browser.click('#mortgage-first-time-buyer');
+    browser.click('#lsc-first-home');
 
     testHelper.expectUrlToInclude('/first-time-buyer/');
 
@@ -72,7 +72,7 @@ describe('Old mortgages landing page - ', () => {
   });
 
   it('Can click through to buy to let page', () => {
-    browser.click('#mortgage-buy-to-let');
+    browser.click('#lsc-buy-to-let');
 
     testHelper.expectUrlToInclude('/buy-to-let/');
 
